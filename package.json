@@ -1,20 +1,27 @@
 {
-  "name": "interiit10-digital-alpha-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.1.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0"
-  }
+    "name": "interiit10-digital-alpha-frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "lint": "next lint",
+        "format": "prettier --write '**/*.{js,md,json,css,scss,ts,tsx}'",
+        "build": "next build",
+        "postbuild": "next-sitemap",
+        "start": "next start"
+    },
+    "dependencies": {
+        "next": "12.1.0",
+        "next-seo": "^5.1.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "eslint": "8.10.0",
+        "eslint-config-next": "12.1.0",
+        "postcss": "^8.4.7",
+        "prettier": "^2.5.1",
+        "tailwindcss": "^3.0.23"
+    }
 }
