@@ -7,7 +7,9 @@ export default function Home() {
         <Fragment>
             <NavbarWrapper>
                 <h1>Hellooo</h1>
-                <Table/>
+                <div style={{ width: "calc( 100vw - 90px )", maxHeight: "500px" }}>
+                    <Table />
+                </div>
             </NavbarWrapper>
         </Fragment>
     );
