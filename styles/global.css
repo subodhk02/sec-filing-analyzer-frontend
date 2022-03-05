@@ -14,3 +14,54 @@ h6 {
     font-weight: bold;
     color: black;
 }
+
+/* Scrollbar styling */
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+    height: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: rgba(0, 0, 0, 0.54);;
+}
+
+
+/* Table styling */
+table {
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table td,
+  table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  table tr:hover {
+    background-color: #e5e7eb;
+  }
+  
+  table th, tfoot td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #1976d2;
+    color: white;
+  }
