@@ -56,13 +56,13 @@ export default function Home() {
         <Fragment>
             <NavbarWrapper>
                 <h1>Hellooo</h1>
-                <div style={{ width: "calc( 100vw - 90px )", maxHeight: "500px", overflow: "scroll" }}>
+                <div style={{ width: "calc( 100vw - 90px )", maxHeight: "500px", overflow: "auto" }}>
                     <Table />
                 </div>
-                <div style={{ width: "60%" }}>
+                <div class="w-full md:w-3/5">
                     <Graph bar graphData={graphData} />
                 </div>
-                <div style={{ width: "60%", maxHeight: "500px", marginTop: "10px" }}>
+                <div class="w-full md:w-3/5" style={{ maxHeight: "500px", marginTop: "10px" }}>
                     <Graph area graphData={graphData} />
                 </div>
             </NavbarWrapper>

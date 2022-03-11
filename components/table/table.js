@@ -14,7 +14,7 @@ export default function Table(props) {
 
     return (
         <>
-            <div className="w-full h-full overflow-scroll">
+            <div className="w-full h-full">
                 <table {...getTableProps()} defaultPageSize={20}>
                     <thead>
                         {headerGroups.map((headerGroup) => (

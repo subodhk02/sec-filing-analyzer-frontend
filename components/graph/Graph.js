@@ -16,7 +16,7 @@ function Graph({ bar, graphData, area }) {
     }
     console.log(legendData);
     return (
-        <div style={{ overflow: "hidden", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", padding: "20px" }}>
+        <div class="my-2 p-2 md:p-10" style={{ overflow: "hidden", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
             {bar && (
                 <div>
                     <VictoryChart
