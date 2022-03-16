@@ -4,6 +4,9 @@ module.exports = {
     mode: "jit",
     content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     theme: {
+        fontFamily: {
+            mulish: "Mulish",
+        },
         extend: {
             colors: {
                 primary: "#3570B5",

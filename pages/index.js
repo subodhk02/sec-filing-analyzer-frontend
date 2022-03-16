@@ -2,6 +2,7 @@ import NavbarWrapper from "@components/navbar/Navbar";
 import { Fragment } from "react";
 import Table from "@components/table/table";
 import Graph from "@components/graph/Graph";
+import Hero from "@components/Home/Hero";
 
 const graphData = {
     labelList: ["Sample 1", "Sample 2", "Sample 3", "Sample 4"],
@@ -54,18 +55,20 @@ const graphData = {
 export default function Home() {
     return (
         <Fragment>
-            <NavbarWrapper>
-                <h1>Hellooo</h1>
-                <div style={{ width: "calc( 100vw - 90px )", maxHeight: "500px", overflow: "auto" }}>
+            {/* <NavbarWrapper> */}
+                {/* <h1>Hellooo</h1>
+                <div style={{ width: "calc( 100vw - 90px )", maxHeight: "500px", overflow: "scroll" }}>
                     <Table />
                 </div>
-                <div class="w-full md:w-3/5">
+                <div style={{ width: "60%" }}>
                     <Graph bar graphData={graphData} />
                 </div>
-                <div class="w-full md:w-3/5" style={{ maxHeight: "500px", marginTop: "10px" }}>
+                <div style={{ width: "60%", maxHeight: "500px", marginTop: "10px" }}>
                     <Graph area graphData={graphData} />
-                </div>
-            </NavbarWrapper>
+                </div> */}
+                
+            {/* </NavbarWrapper> */}
+            <Hero />
         </Fragment>
     );
 }
