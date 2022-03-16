@@ -267,7 +267,7 @@ export default function NavbarWrapper({ children }) {
                                         aria-label="account of current user"
                                         aria-controls={menuId}
                                         aria-haspopup="true"
-                                        onClick={toggleDrawer}
+                                        // onClick={toggleDrawer}
                                         sx={{ marginRight: "10px" }}
                                         color="inherit"
                                     >
@@ -329,9 +329,9 @@ export default function NavbarWrapper({ children }) {
                             </Typography>
                         </div>
                         <Box sx={{ flexGrow: 1 }} />
-                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                        <Box sx={{ display: "flex" }}>
                             <SearchBar />
-                            <div className="text-base gap-x-2 flex bg-white m-0 items-center pl-6 pr-6 pt-2 pb-2 rounded-md">
+                            <div className="text-base gap-x-2 md:flex bg-white m-0 items-center pl-6 pr-6 pt-2 pb-2 rounded-md hidden ">
                                 <Image src={LoginIcon} alt="logo" />
                                 <p className="text-zinc-500	">Login</p>
                             </div>

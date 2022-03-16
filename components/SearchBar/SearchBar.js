@@ -75,8 +75,9 @@ function SearchBar() {
                 }}
                 options={COMPANY_LIST}
                 // getOptionLabel={(option) => option}
-                style={{ width: "40vw" }}
+                style={{ width: "50vw" }}
                 // isOptionEqualToValue={(option, value) => option === value}
+                // className="w-full"
                 renderInput={(params) => {
                     const { InputLabelProps, InputProps, ...rest } = params;
                     return (

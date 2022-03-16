@@ -55,7 +55,7 @@ export default function Home() {
     return (
         <Fragment>
             <NavbarWrapper>
-                <h1>Hellooo</h1>
+                {/* <h1>Hellooo</h1>
                 <div style={{ width: "calc( 100vw - 90px )", maxHeight: "500px", overflow: "scroll" }}>
                     <Table />
                 </div>
@@ -64,7 +64,7 @@ export default function Home() {
                 </div>
                 <div style={{ width: "60%", maxHeight: "500px", marginTop: "10px" }}>
                     <Graph area graphData={graphData} />
-                </div>
+                </div> */}
             </NavbarWrapper>
         </Fragment>
     );
