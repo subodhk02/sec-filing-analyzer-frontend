@@ -23,8 +23,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import LogoutSharpIcon from "@mui/icons-material/LogoutSharp";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { ListItem } from "@mui/material";
+import { Button, createTheme, ListItem } from "@mui/material";
 import SearchBar from "@components/SearchBar/SearchBar";
+import { ThemeProvider } from "@emotion/react";
+import Image from "next/image";
+
+import LoginIcon from "../../assets/images/login.svg";
+import Logo from "../../assets/images/logo.svg";
 
 const drawerWidth = 240;
 
@@ -122,6 +127,30 @@ export default function NavbarWrapper({ children }) {
         right: false,
     });
 
+    {
+        ["All mail", "Trash", "Spam"].map((text, index) => (
+            <ListItemButton
+                key={text}
+                sx={{
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                }}
+            >
+                <ListItemIcon
+                    sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                    }}
+                >
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+        ));
+    }
+
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
@@ -217,143 +246,180 @@ export default function NavbarWrapper({ children }) {
         </Box>
     );
 
+    const typoTheme = createTheme({
+        typography: {
+            fontFamily: `'Mulish', sans-serif`,
+        },
+    });
+
     return (
-        <Box sx={{ display: "flex" }}>
-            <CssBaseline />
-            <AppBar position="fixed" open={open}>
-                <Toolbar>
-                    {!open && (
-                        <Box>
-                            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                                <IconButton
-                                    size="large"
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    onClick={toggleDrawer}
-                                    sx={{ marginRight: "10px" }}
-                                    color="inherit"
-                                >
-                                    <MenuIcon />
-                                </IconButton>
+        <ThemeProvider theme={typoTheme}>
+            <Box sx={{ display: "flex" }}>
+                <CssBaseline />
+                <AppBar position="fixed" open={open} sx={{ background: "#363740" }}>
+                    <Toolbar>
+                        {!open && (
+                            <Box>
+                                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                                    <IconButton
+                                        size="large"
+                                        edge="end"
+                                        aria-label="account of current user"
+                                        aria-controls={menuId}
+                                        aria-haspopup="true"
+                                        onClick={toggleDrawer}
+                                        sx={{ marginRight: "10px" }}
+                                        color="inherit"
+                                    >
+                                        <Image src={Logo} />
+                                    </IconButton>
+                                </Box>
+                                <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="show more"
+                                        aria-controls={mobileMenuId}
+                                        aria-haspopup="true"
+                                        onClick={toggleMobileDrawer("left")}
+                                        // onClick={handleProfileMenuOpen}
+                                        color="inherit"
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Box>
                             </Box>
-                            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-                                <IconButton
-                                    size="large"
-                                    aria-label="show more"
-                                    aria-controls={mobileMenuId}
-                                    aria-haspopup="true"
-                                    onClick={toggleMobileDrawer("left")}
-                                    // onClick={handleProfileMenuOpen}
-                                    color="inherit"
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                            </Box>
+                        )}
+                        <div className="flex gap-x-4 items-center">
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: "none", sm: "block" }, fontWeight: "700" }}
+                                className="text-lg"
+                            >
+                                10K Reports
+                            </Typography>
+                            <div className="w-1 h-10 bg-white"> </div>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: "none", sm: "block" } }}
+                                className="text-lg"
+                            >
+                                Home
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: "none", sm: "block" } }}
+                                className="text-lg"
+                            >
+                                Explore
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="div"
+                                sx={{ display: { xs: "none", sm: "block" } }}
+                                className="text-lg"
+                            >
+                                About Us
+                            </Typography>
+                        </div>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                            <SearchBar />
+                            <div className="text-base gap-x-2 flex bg-white m-0 items-center pl-6 pr-6 pt-2 pb-2 rounded-md">
+                                <Image src={LoginIcon} alt="logo" />
+                                <p className="text-zinc-500	">Login</p>
+                            </div>
                         </Box>
-                    )}
-                    <Typography variant="h6" noWrap component="div" sx={{ display: { xs: "none", sm: "block" } }}>
-                        DA
-                    </Typography>
-                    <SearchBar />
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
+                        {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                            <IconButton
+                                size="large"
+                                aria-label="show more"
+                                aria-controls={mobileMenuId}
+                                aria-haspopup="true"
+                                onClick={handleProfileMenuOpen}
+                                // onClick={handleProfileMenuOpen}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                        </Box> */}
+                    </Toolbar>
+                </AppBar>
+                {profileMenu}
+                <SwipeableDrawer
+                    anchor="left"
+                    open={state["left"]}
+                    onClose={toggleMobileDrawer("left", false)}
+                    onOpen={toggleMobileDrawer("left", true)}
+                >
+                    {mobileDrawer("left")}
+                </SwipeableDrawer>
+                {/* <Drawer variant="permanent" open={open}>
+                    <DrawerHeader>
+                        <IconButton onClick={toggleDrawer}>
+                            {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                         </IconButton>
-                    </Box>
-                    <Box sx={{ display: { xs: "flex", md: "none" } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            // onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
-                    </Box>
-                </Toolbar>
-            </AppBar>
-            {profileMenu}
-            <SwipeableDrawer
-                anchor="left"
-                open={state["left"]}
-                onClose={toggleMobileDrawer("left", false)}
-                onOpen={toggleMobileDrawer("left", true)}
-            >
-                {mobileDrawer("left")}
-            </SwipeableDrawer>
-            <Drawer variant="permanent" open={open}>
-                <DrawerHeader>
-                    <IconButton onClick={toggleDrawer}>
-                        {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
-                </DrawerHeader>
-                <Divider />
-                <List>
-                    {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-                        <ListItemButton
-                            key={text}
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? "initial" : "center",
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
+                    </DrawerHeader>
+                    <Divider />
+                    <List>
+                        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+                            <ListItemButton
+                                key={text}
                                 sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : "auto",
-                                    justifyContent: "center",
+                                    minHeight: 48,
+                                    justifyContent: open ? "initial" : "center",
+                                    px: 2.5,
                                 }}
                             >
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {["All mail", "Trash", "Spam"].map((text, index) => (
-                        <ListItemButton
-                            key={text}
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? "initial" : "center",
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : "auto",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        ))}
+                    </List>
+                    <Divider />
+                    <List>
+                        {["All mail", "Trash", "Spam"].map((text, index) => (
+                            <ListItemButton
+                                key={text}
                                 sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : "auto",
-                                    justifyContent: "center",
+                                    minHeight: 48,
+                                    justifyContent: open ? "initial" : "center",
+                                    px: 2.5,
                                 }}
                             >
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
-                    ))}
-                </List>
-            </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
-                <DrawerHeader />
-                {children}
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : "auto",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        ))}
+                    </List>
+                </Drawer> */}
+                <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
+                    <DrawerHeader />
+                    {children}
+                </Box>
             </Box>
-        </Box>
+        </ThemeProvider>
     );
 }

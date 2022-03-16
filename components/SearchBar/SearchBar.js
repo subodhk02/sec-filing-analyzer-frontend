@@ -18,10 +18,10 @@ const Search = styled("form")(({ theme }) => ({
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: "100%",
+    // width: "100%",
     [theme.breakpoints.up("sm")]: {
         marginLeft: theme.spacing(3),
-        width: "40vw",
+        // width: "40vw",
     },
 }));
 
@@ -45,9 +45,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(1)})`,
         transition: theme.transitions.create("width"),
-        width: "100%",
+        // width: "100%",
         [theme.breakpoints.up("md")]: {
-            width: "20ch",
+            // width: "20ch",
         },
     },
 }));
@@ -64,7 +64,7 @@ function SearchBar() {
     return (
         <Fragment>
             <Autocomplete
-                freeSolo
+                // freeSolo
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
@@ -74,29 +74,30 @@ function SearchBar() {
                     setSearch(newInputValue);
                 }}
                 options={COMPANY_LIST}
-                getOptionLabel={(option) => option}
-                style={{ width: 300 }}
-                isOptionEqualToValue={(option, value) => option === value}
+                // getOptionLabel={(option) => option}
+                style={{ width: "40vw" }}
+                // isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => {
                     const { InputLabelProps, InputProps, ...rest } = params;
                     return (
                         <Search onSubmit={handleSubmit}>
-                            <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{ "aria-label": "search" }}
-                                {...params.InputProps}
-                                {...rest}
-                            />
                             <Button
                                 type="submit"
                                 onSubmit={() => {
                                     console.log("ehlloo");
                                 }}
+                                className="w-10"
                             >
                                 <SearchIconWrapper>
-                                    <SearchIcon />
+                                    <SearchIcon style={{ color: "#F89838" }} />
                                 </SearchIconWrapper>
                             </Button>
+                            <StyledInputBase
+                                placeholder="Search for a company"
+                                inputProps={{ "aria-label": "search" }}
+                                {...params.InputProps}
+                                {...rest}
+                            />
                         </Search>
                     );
                 }}
