@@ -328,7 +328,7 @@ export default function NavbarWrapper({ children }) {
                                 About Us
                             </Typography>
                         </div>
-                        <Box sx={{ flexGrow: 1 }} />
+                        <Box sx={{ flexGrow: 1 }} className="hidden md:block" />
                         <Box sx={{ display: "flex" }}>
                             <SearchBar />
                             <div className="text-base gap-x-2 md:flex bg-white m-0 items-center pl-6 pr-6 pt-2 pb-2 rounded-md hidden ">

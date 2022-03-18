@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button, Stack } from "@mui/material";
 import WhiteListIcon from "../../assets/images/whitelist.svg";
 import Overview from "@components/overview/Overview";
+import Metrics from "@components/metrics/Metrics";
 
 function Company() {
     return (
@@ -59,6 +60,7 @@ function Company() {
                         </Stack>
                     </div>
                     <Overview />
+                    <Metrics />
                 </NavbarWrapper>
             </div>
         </Fragment>

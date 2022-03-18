@@ -75,16 +75,17 @@ tfoot td {
 }
 
 /* Home */
-.heroSection{
+.heroSection {
     padding-bottom: 50px;
     background-color: #363740;
-    color: #FFFFFF;
-    font-family: 'Mulish';
+    color: #ffffff;
+    font-family: "Mulish";
     font-style: normal;
     text-align: center;
+    min-height: 100vh;
 }
 
-.Nav{
+.Nav {
     height: 7%;
     display: flex;
     flex-direction: row;
@@ -92,68 +93,68 @@ tfoot td {
     padding: 20px 26px;
 }
 
-.pages{
+.pages {
     align-self: center;
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
 }
-.pages a{
+.pages a {
     margin: 0 10px;
 }
 
-.login{
+.login {
     align-self: center;
 }
 
-.hero{
+.hero {
     margin: 20px auto;
     width: 50%;
 }
 
-.logoSection{
+.logoSection {
     display: flex;
     justify-content: center;
 }
 
-.heroLogo{
+.heroLogo {
     height: 100px;
     width: 100px;
     margin: auto;
 }
 
-.title{
+.title {
     font-weight: 700;
     font-size: 26px;
     line-height: 33px;
     margin-top: 30px;
 }
 
-.moto{
+.moto {
     font-weight: 400;
     font-size: 18px;
     margin-top: 5px;
     line-height: 23px;
 }
 
-.searchbar{
+.searchbar {
     margin-top: 30px;
     display: flex;
     justify-content: center;
 }
 
-.tagBox{
-    margin: 30px ;
+.tagBox {
+    margin: 30px;
     color: #757575;
     display: flex;
     flex-direction: row;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 4px 4px rgba(31, 27, 27, 0.6);
     border-radius: 4px;
     align-self: center;
 }
 
-.tagBox .heading{
+.tagBox .heading {
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
@@ -163,14 +164,14 @@ tfoot td {
     padding: 20px;
 }
 
-.tagBox .tags{
+.tagBox .tags {
     width: 70%;
     height: 100%;
     align-self: center;
     padding: 10px 10px;
 }
 
-.tag{
+.tag {
     width: fit-content;
     padding: 4px;
     margin: 2px 2px;
@@ -178,21 +179,20 @@ tfoot td {
     font-size: 16px;
     line-height: 20px;
     color: #757575;
-    border: 1px solid #E5E5E5;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
     display: inline-block;
     white-space: nowrap;
 }
 
-.Watchtags{
+.Watchtags {
     width: 70%;
     align-self: center;
     padding: 10px 10px;
     display: flex;
     flex-direction: column;
-    
 }
-.Watchtag{
+.Watchtag {
     width: fit-content;
     padding: 4px;
     margin: 2px auto;
@@ -200,23 +200,23 @@ tfoot td {
     font-size: 16px;
     line-height: 20px;
     color: #757575;
-    border: 1px solid #E5E5E5;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
 }
 
-@media screen and (max-width: 820px)  {
-    .hero{
+@media screen and (max-width: 820px) {
+    .hero {
         width: 80%;
     }
-    .tagBox{
+    .tagBox {
         flex-direction: column;
     }
-    .tagBox .heading{
+    .tagBox .heading {
         width: 100%;
         height: 30%;
         padding: 10px;
     }
-    .tagBox .tags{
+    .tagBox .tags {
         width: 100%;
         height: 70%;
     }
