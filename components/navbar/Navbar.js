@@ -227,14 +227,14 @@ export default function NavbarWrapper({ children }) {
             onKeyDown={toggleMobileDrawer(anchor, false)}
         >
             <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+                {["Home"].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
-            <Divider />
+            {/* <Divider />
             <List>
                 {["All mail", "Trash", "Spam"].map((text, index) => (
                     <ListItem button key={text}>
@@ -242,7 +242,7 @@ export default function NavbarWrapper({ children }) {
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
-            </List>
+            </List> */}
         </Box>
     );
 
@@ -300,7 +300,7 @@ export default function NavbarWrapper({ children }) {
                                 10K Reports
                             </Typography>
                             <div className="w-1 h-10 bg-white"> </div>
-                            <Typography
+                            {/* <Typography
                                 variant="h6"
                                 noWrap
                                 component="div"
@@ -326,7 +326,7 @@ export default function NavbarWrapper({ children }) {
                                 className="text-lg"
                             >
                                 About Us
-                            </Typography>
+                            </Typography> */}
                         </div>
                         <Box sx={{ flexGrow: 1 }} className="hidden md:block" />
                         <Box sx={{ display: "flex" }}>

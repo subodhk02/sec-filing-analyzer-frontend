@@ -4,7 +4,8 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryStack } from "victory";
 import { VictoryTooltip } from "victory-tooltip";
 
 function Graph({ bar, graphData, area }) {
-    const CustomContainerComponent = V.createContainer("zoom", "voronoi");
+    console.log(graphData);
+    const CustomContainerComponent = V.createContainer("voronoi");
     const legendData = [];
     for (let i = 0; i < graphData.dataList.length; i++) {
         legendData.push({
@@ -14,9 +15,11 @@ function Graph({ bar, graphData, area }) {
             },
         });
     }
-    console.log(legendData);
     return (
-        <div class="my-2 p-2 md:p-10" style={{ overflow: "hidden", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}>
+        <div
+            class="my-2 p-2 md:p-10"
+            style={{ overflow: "hidden", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }}
+        >
             {bar && (
                 <div>
                     <VictoryChart
@@ -142,7 +145,6 @@ function Graph({ bar, graphData, area }) {
                             data={legendData}
                         />
                         {graphData.dataList.map((areaComponent, index) => {
-                            console.log(areaComponent);
                             return (
                                 <V.VictoryArea
                                     standalone

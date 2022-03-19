@@ -1,4 +1,7 @@
+import { GlobalContext } from "@utils/global";
 import "/styles/global.css";
+import React from "react";
+import axios from "axios";
 
 // Performance Metrics logging
 // export function reportWebVitals(metric) {
@@ -6,6 +9,13 @@ import "/styles/global.css";
 // }
 
 function MyApp({ Component, pageProps }) {
+    const [companies, setCompanies] = React.useState([]);
+    React.useEffect(() => {
+        axios.get(`${process.env.BASE_URL}company/list/?limit=300`).then((res) => {
+            console.log("companies response: ", res);
+            setCompanies(res.data.results);
+        });
+    }, []);
     return (
         <>
             {/* <DefaultSeo
@@ -19,7 +29,13 @@ function MyApp({ Component, pageProps }) {
                     cardType: 'summary_large_image',
                 }}
             /> */}
-            <Component {...pageProps} />
+            <GlobalContext.Provider
+                value={{
+                    companies: companies,
+                }}
+            >
+                <Component {...pageProps} />
+            </GlobalContext.Provider>
         </>
     );
 }
