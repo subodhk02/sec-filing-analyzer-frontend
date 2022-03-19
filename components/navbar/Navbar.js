@@ -31,6 +31,7 @@ import Image from "next/image";
 import LoginIcon from "../../assets/images/login.svg";
 import Logo from "../../assets/images/logo.svg";
 
+import { useRouter } from "next/router";
 const drawerWidth = 240;
 
 const MenuTheme = styled("div")(({ theme }) => ({
@@ -114,6 +115,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 }));
 
 export default function NavbarWrapper({ children }) {
+    const router = useRouter();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const theme = useTheme();
@@ -227,14 +229,21 @@ export default function NavbarWrapper({ children }) {
             onKeyDown={toggleMobileDrawer(anchor, false)}
         >
             <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-                    <ListItem button key={text}>
+                {["Home"].map((text, index) => (
+                    <ListItem
+                        button
+                        key={text}
+                        onClick={() => {
+                            router.push("/");
+                            handleMobileMenuClose();
+                        }}
+                    >
                         <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>
-            <Divider />
+            {/* <Divider />
             <List>
                 {["All mail", "Trash", "Spam"].map((text, index) => (
                     <ListItem button key={text}>
@@ -242,7 +251,7 @@ export default function NavbarWrapper({ children }) {
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
-            </List>
+            </List> */}
         </Box>
     );
 
@@ -270,6 +279,10 @@ export default function NavbarWrapper({ children }) {
                                         // onClick={toggleDrawer}
                                         sx={{ marginRight: "10px" }}
                                         color="inherit"
+                                        onClick={() => {
+                                            router.push("/");
+                                            handleMobileMenuClose();
+                                        }}
                                     >
                                         <Image src={Logo} />
                                     </IconButton>
@@ -300,7 +313,7 @@ export default function NavbarWrapper({ children }) {
                                 10K Reports
                             </Typography>
                             <div className="w-1 h-10 bg-white"> </div>
-                            <Typography
+                            {/* <Typography
                                 variant="h6"
                                 noWrap
                                 component="div"
@@ -326,7 +339,7 @@ export default function NavbarWrapper({ children }) {
                                 className="text-lg"
                             >
                                 About Us
-                            </Typography>
+                            </Typography> */}
                         </div>
                         <Box sx={{ flexGrow: 1 }} className="hidden md:block" />
                         <Box sx={{ display: "flex" }}>

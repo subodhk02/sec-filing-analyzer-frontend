@@ -2,6 +2,11 @@
     "name": "interiit10-digital-alpha-frontend",
     "version": "0.1.0",
     "private": true,
+    "proxy": {
+        "*": {
+            "target": "http://sec-filing-prod.ap-southeast-1.elasticbeanstalk.com/"
+        }
+    },
     "scripts": {
         "dev": "next dev",
         "lint": "next lint",
@@ -13,17 +18,23 @@
     "dependencies": {
         "@emotion/react": "^11.8.1",
         "@emotion/styled": "^11.8.1",
+        "@faker-js/faker": "^6.0.0",
         "@mui/icons-material": "^5.4.4",
         "@mui/lab": "*",
         "@mui/material": "^5.4.4",
+        "axios": "^0.26.1",
+        "chart.js": "^3.7.1",
+        "dotenv": "^16.0.0",
         "fs": "*",
         "next": "12.1.0",
         "next-seo": "^5.1.0",
         "next-sitemap": "^2.5.10",
         "react": "17.0.2",
+        "react-chartjs-2": "^4.0.1",
         "react-dom": "17.0.2",
         "react-table": "^7.7.0",
         "read-more-react": "^1.0.10",
+        "recharts": "^2.1.9",
         "victory": "^36.3.0",
         "victory-tooltip": "^36.3.0"
     },

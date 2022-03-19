@@ -10,8 +10,6 @@ function Hero() {
             <div className="Nav">
                 <div className="pages">
                     <a>Home</a>
-                    <a>Explore</a>
-                    <a>About Us</a>
                 </div>
                 <div className="login text-base gap-x-2 md:flex bg-white m-0 items-center pl-6 pr-6 pt-2 pb-2 rounded-md hidden ">
                     <Image src={LoginIcon} alt="logoin" />
