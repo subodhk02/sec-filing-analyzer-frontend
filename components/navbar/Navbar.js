@@ -31,6 +31,7 @@ import Image from "next/image";
 import LoginIcon from "../../assets/images/login.svg";
 import Logo from "../../assets/images/logo.svg";
 
+import { useRouter } from "next/router";
 const drawerWidth = 240;
 
 const MenuTheme = styled("div")(({ theme }) => ({
@@ -114,6 +115,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 }));
 
 export default function NavbarWrapper({ children }) {
+    const router = useRouter();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const theme = useTheme();
@@ -228,7 +230,14 @@ export default function NavbarWrapper({ children }) {
         >
             <List>
                 {["Home"].map((text, index) => (
-                    <ListItem button key={text}>
+                    <ListItem
+                        button
+                        key={text}
+                        onClick={() => {
+                            router.push("/");
+                            handleMobileMenuClose();
+                        }}
+                    >
                         <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
@@ -270,6 +279,10 @@ export default function NavbarWrapper({ children }) {
                                         // onClick={toggleDrawer}
                                         sx={{ marginRight: "10px" }}
                                         color="inherit"
+                                        onClick={() => {
+                                            router.push("/");
+                                            handleMobileMenuClose();
+                                        }}
                                     >
                                         <Image src={Logo} />
                                     </IconButton>
